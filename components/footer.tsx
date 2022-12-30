@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="flex ml-auto px-4 pb-4">
+    <footer className="flex justify-center p-4 border-t w-full md:justify-end">
       <div>@ 2023 김동선</div>
     </footer>
   );

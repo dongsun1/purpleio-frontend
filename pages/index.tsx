@@ -27,24 +27,26 @@ export default function Home({ stores }: { stores: IStore[] }) {
   };
 
   return (
-    <div className="grid grid-cols-2" style={{ flex: 1 }}>
-      {stores.map(({ id, name, thumb }) => {
-        return (
-          <Card
-            key={id}
-            className="m-4 cursor-pointer hover:scale-105 transition duration-300"
-            sx={{ width: 280, height: 280 }}
-            onClick={() => handleClickOpen(id)}
-          >
-            <CardMedia sx={{ height: 280, width: 280 }} image={thumb} title={name} />
-          </Card>
-        );
-      })}
+    <>
+      <div className="grid grid-cols-1 gap-4 justify-items-center md:grid-cols-2 py-3" style={{ flex: 1 }}>
+        {stores.map(({ id, name, thumb }) => {
+          return (
+            <Card
+              key={id}
+              className="cursor-pointer hover:scale-105 transition duration-300"
+              sx={{ width: 280, height: 280 }}
+              onClick={() => handleClickOpen(id)}
+            >
+              <CardMedia sx={{ height: 280, width: 280 }} image={thumb} title={name} />
+            </Card>
+          );
+        })}
+      </div>
 
       <Dialog onClose={handleClose} open={open} maxWidth="lg">
-        <div className="flex">
-          <Image className="w-1/2" src={store.image} alt={store.name} width="600" height="600"></Image>
-          <div className="w-1/2 relative">
+        <div className="flex flex-col md:flex-row">
+          <Image className="md:w-1/2" src={store.image} alt={store.name} width="600" height="600"></Image>
+          <div className="md:w-1/2 relative">
             <button
               className="cursor-pointer text-3xl absolute right-2 hover:text-red-500 transition"
               onClick={handleClose}
@@ -66,7 +68,7 @@ export default function Home({ stores }: { stores: IStore[] }) {
           </div>
         </div>
       </Dialog>
-    </div>
+    </>
   );
 }
 

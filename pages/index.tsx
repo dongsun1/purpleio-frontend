@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next';
 import { IStore } from '../interfaces/store.interface';
 import Card from '@mui/material/Card';
-import { CardMedia } from '@mui/material';
+import CardMedia from '@mui/material/CardMedia';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
@@ -32,11 +32,11 @@ export default function Home({ stores }: { stores: IStore[] }) {
         return (
           <Card
             key={id}
-            className="m-4 cursor-pointer hover:scale-105 transition"
-            sx={{ maxWidth: 400 }}
+            className="m-4 cursor-pointer hover:scale-105 transition duration-300"
+            sx={{ width: 280, height: 280 }}
             onClick={() => handleClickOpen(id)}
           >
-            <CardMedia sx={{ height: 200 }} image={thumb} title={name} />
+            <CardMedia sx={{ height: 280, width: 280 }} image={thumb} title={name} />
           </Card>
         );
       })}
